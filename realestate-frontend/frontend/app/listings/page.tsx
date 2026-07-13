@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getListings } from "@/lib/api";
 import ListingCard from "@/components/ListingCard";
 import SearchFilters from "@/components/SearchFilters";
