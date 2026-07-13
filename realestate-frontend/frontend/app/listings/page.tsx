@@ -20,7 +20,9 @@ export default async function ListingsPage({
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
       <h1 className="text-2xl font-bold mb-4">Browse Properties</h1>
-      <SearchFilters />
+      <Suspense fallback={<div className="h-20 mb-6" />}>
+        <SearchFilters />
+      </Suspense>
 
       {error && (
         <p className="text-red-500">
