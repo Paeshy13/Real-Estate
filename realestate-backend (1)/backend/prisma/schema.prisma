@@ -1,0 +1,65 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  BUYER
+  AGENT
+  ADMIN
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  password  String
+  name      String
+  role      Role      @default(BUYER)
+  listings  Listing[]
+  inquiries Inquiry[]
+  createdAt DateTime  @default(now())
+}
+
+model Listing {
+  id           String    @id @default(uuid())
+  title        String
+  description  String
+  price        Int
+  address      String
+  city         String
+  lat          Float
+  lng          Float
+  bedrooms     Int
+  bathrooms    Int
+  sqft         Int
+  propertyType String
+  status       String    @default("active")
+  images       Image[]
+  inquiries    Inquiry[]
+  agent        User      @relation(fields: [agentId], references: [id])
+  agentId      String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Image {
+  id        String  @id @default(uuid())
+  url       String
+  order     Int     @default(0)
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  listingId String
+}
+
+model Inquiry {
+  id        String   @id @default(uuid())
+  message   String
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  listingId String
+  buyer     User     @relation(fields: [buyerId], references: [id])
+  buyerId   String
+  createdAt DateTime @default(now())
+}
