@@ -7,7 +7,7 @@
     "build": "tsc && npx prisma generate",
     "start": "node dist/index.js",
     "build": "prisma generate && tsc",
-  "postinstall": "prisma generate"
+  "postinstall": "prisma generate",
     "migrate": "npx prisma migrate deploy",
     "studio": "npx prisma studio"
   },
