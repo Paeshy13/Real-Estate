@@ -25,11 +25,9 @@ export interface ListingsResponse {
   totalPages: number;
 }
 
-export async function getListings(
-  params: Record<string, string> = {}
-): Promise<ListingsResponse> {
+export async function getListings(params: Record<string, string> = {}): Promise<ListingsResponse> {
   const query = new URLSearchParams(params).toString();
-  const res = await fetch(`${API_URL}/api/listings?${query}`, { cache: "no-store" });
+  const res = await fetch(`${API_URL}/api/listings${query ? `?${query}` : ""}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch listings");
   return res.json();
 }
