@@ -219,8 +219,8 @@ export default function GridMotion({
 
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
     const motion = motionRef.current;
-    const rowEls = Array.from(plane.children);
-    const tileEls = rowEls.map((row) => Array.from(row.children));
+    const rowEls = Array.from(plane.children) as HTMLDivElement[];
+    const tileEls = rowEls.map((row) => Array.from(row.children) as HTMLDivElement[]);
     const spots = tileEls.map((list) => new Float32Array(list.length));
     const written = tileEls.map((list) => new Float32Array(list.length));
     let raf = 0;
