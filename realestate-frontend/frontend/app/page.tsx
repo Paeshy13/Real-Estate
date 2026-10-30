@@ -28,38 +28,39 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-[#0b0d12] text-white">
       <section className="relative isolate overflow-hidden min-h-[640px] bg-[#0b0d12]">
-        <div className="absolute inset-0 z-0 opacity-95">
+        <div className="absolute inset-0 z-0 opacity-80">
           <GridMotion
             items={heroItems}
             rows={5}
-            aspectRatio={1.2}
-            gap={16}
-            radius={18}
-            angle={-12}
+            aspectRatio={1.25}
+            gap={18}
+            radius={20}
+            angle={-10}
             tilt={0}
-            speed={22}
+            speed={18}
             direction="alternate"
-            parallax={0.5}
-            spotlight={0.72}
-            dim={0.35}
-            fade={0.6}
+            parallax={0.35}
+            spotlight={0.85}
+            dim={0.28}
+            fade={0.52}
             grayscale={false}
-            className="h-[640px] w-full"
+            className="h-[640px] w-full brightness-[0.9] saturate-75"
             theme="dark"
           />
         </div>
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(96,165,250,0.16),_transparent_45%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(7,10,18,0.88),rgba(7,10,18,0.42),rgba(7,10,18,0.72))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(148,163,184,0.2),_transparent_48%)]" />
 
         <div className="relative z-10 mx-auto flex min-h-[640px] max-w-6xl items-center px-6 py-20">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl rounded-[28px] border border-white/10 bg-white/6 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.45)] backdrop-blur-xl md:p-8">
             <p className="mb-4 inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 backdrop-blur-sm">
               Curated homes, smarter decisions
             </p>
             <h1 className="mb-6 text-5xl font-black leading-tight tracking-tight text-white md:text-6xl">
               Find a home that feels like your next chapter.
             </h1>
-            <p className="mb-8 max-w-xl text-lg text-slate-200">
+            <p className="mb-8 max-w-xl text-lg text-slate-200/90">
               Browse verified listings from trusted agents — including luxury residences, family homes,
               and high-growth investment opportunities across the city.
             </p>

@@ -27,6 +27,7 @@ a {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  filter: blur(0.2px);
 }
 
 .grid-motion__plane {
@@ -60,6 +61,7 @@ a {
   line-height: 1.2;
   text-align: center;
   opacity: calc(1 - var(--gm-dim) * (1 - var(--spot, 0)));
+  backdrop-filter: blur(1px);
 }
 
 .grid-motion__tile::after {
