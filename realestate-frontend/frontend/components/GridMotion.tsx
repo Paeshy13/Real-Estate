@@ -353,14 +353,13 @@ export default function GridMotion({
           className="grid-motion__plane"
           aria-hidden="true"
           style={{
-            width: layout.planeWidth,
             height: layout.planeHeight,
             transform: `translate(-50%, -50%) rotateX(${settings.tilt}deg) rotateZ(${settings.angle}deg)`,
             '--gm-gap': `${settings.gap}px`,
             '--gm-tile-w': `${layout.tileWidth}px`,
             '--gm-tile-h': `${layout.tileHeight}px`,
             '--gm-font': `${clamp(layout.tileHeight * 0.12, 12, 32)}px`
-          }}
+          } as React.CSSProperties & Record<string, string | number>}
         >
           {rowTiles.map((sequence, r) => (
             <div
